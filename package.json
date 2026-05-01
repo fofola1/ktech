@@ -1,0 +1,14 @@
+{
+  "name": "ktech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "tailwindcss": "^4.2.4"
+  },
+  "scripts": {
+    "css:build": "npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css",
+    "css:watch": "npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch"
+  }
+}
