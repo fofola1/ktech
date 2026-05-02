@@ -1,0 +1,6 @@
+*
+!public/
+!public/**
+!Dockerfile
+!nginx.conf
+!docker-compose.yml

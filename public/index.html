@@ -1,11 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree - KTech</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Linktree - KTech</title>
+        <link rel="stylesheet" href="./output.css" />
+    </head>
+    <body class="font-sans text-white">
+        <main
+            class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10 sm:px-6 lg:px-8"
+        >
+            <div
+                class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,86,230,0.22),_transparent_34%)]"
+            ></div>
+            <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-black via-black/70 to-transparent"
+            ></div>
+
+            <section
+                class="glass-card relative z-10 w-full max-w-2xl rounded-[2rem] p-5 sm:p-8 lg:p-10"
+            >
+                <div
+                    class="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10"
+                >
+                    <div
+                        class="flex shrink-0 flex-col items-center gap-4 text-center lg:w-56"
+                    >
+                        <div class="relative">
+                            <div
+                                class="absolute inset-0 rounded-full bg-brand-blue/35 blur-2xl"
+                            ></div>
+                            <div
+                                class="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full border-4 border-white/15 bg-white/10 text-center shadow-2xl shadow-black/40 sm:h-40 sm:w-40"
+                            >
+                                <span
+                                    class="text-sm font-semibold uppercase tracking-[0.3em] text-white/70"
+                                    >Photo</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h1
+                                class="text-3xl font-black tracking-tight text-white sm:text-4xl"
+                            >
+                                Filip Řeháček
+                            </h1>
+                            <p
+                                class="max-w-xs text-sm leading-6 text-white/70 sm:text-base"
+                            >
+                                TODO
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-0 flex-1 space-y-6">
+                        <div id="linktree-sections" class="space-y-6"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const linktreeConfig = {
+                Social: {
+                    GitHub: "https://github.com/",
+                    LinkedIn: "https://www.linkedin.com/",
+                    "X / Twitter": "https://x.com/",
+                },
+                Projects: {
+                    Portfolio: "https://example.com/portfolio",
+                    "Latest Work": "https://example.com/work",
+                },
+                Contact: {
+                    "Email Me": "mailto:hello@example.com",
+                    "Book a Call": "https://example.com/contact",
+                },
+            };
+
+            const sectionsContainer =
+                document.getElementById("linktree-sections");
+
+            const sectionEntries = Object.entries(linktreeConfig);
+
+            sectionsContainer.innerHTML = sectionEntries
+                .map(([sectionName, buttons]) => {
+                    const buttonMarkup = Object.entries(buttons)
+                        .map(
+                            ([buttonText, url]) => `
+                    <a class="link-button group" href="${url}" target="_blank" rel="noreferrer">
+                        <span class="text-base font-semibold sm:text-lg">${buttonText}</span>
+                        <span class="ml-4 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black text-white transition group-hover:bg-white group-hover:text-black">↗</span>
+                    </a>
+                `,
+                        )
+                        .join("");
+
+                    return `
+                <section class="space-y-3">
+                    <h2 class="section-title text-white/80">${sectionName}</h2>
+                    <div class="space-y-3">${buttonMarkup}</div>
+                </section>
+            `;
+                })
+                .join("");
+        </script>
+    </body>
 </html>

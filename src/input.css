@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+	--color-brand-blue: #0E56E6;
+}
+
+@layer base {
+	html {
+		@apply bg-black text-white;
+	}
+
+	body {
+		@apply min-h-screen bg-[radial-gradient(circle_at_top,_rgba(14,86,230,0.26),_transparent_38%),linear-gradient(135deg,#000000_0%,#111111_4%,#0E56E6_100%)] text-white antialiased;
+	}
+
+	a {
+		@apply transition duration-300 ease-out;
+	}
+}
+
+@layer components {
+	.glass-card {
+		@apply border border-white/15 bg-black/70 shadow-2xl shadow-black/30 backdrop-blur-xl;
+	}
+
+	.link-button {
+		@apply flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-4 text-left text-black shadow-sm shadow-black/10 transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue hover:bg-brand-blue hover:text-white;
+	}
+
+	.section-title {
+		@apply text-xs font-semibold uppercase tracking-[0.28em] text-white/65;
+	}
+}
