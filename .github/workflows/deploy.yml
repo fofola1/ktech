@@ -1,0 +1,21 @@
+name: Deploy to Homelab
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Deployment Sequence
+        run: |
+          echo "Starting deployment on homelab..."
+          docker compose down
+          docker compose up -d --build
+          echo "Deployment complete!"
