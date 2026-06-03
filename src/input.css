@@ -31,3 +31,63 @@
 		@apply text-xs font-semibold uppercase tracking-[0.28em] text-white/65;
 	}
 }
+
+/* Nadpisy v obsahu: mezera nahoře a vizuální akcent */
+.prose h1,
+.prose h2,
+.prose h3 {
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+	color: rgba(255, 255, 255, 0.95);
+	letter-spacing: -0.02em;
+	font-weight: 800;
+}
+.prose h2 {
+	font-size: 1.125rem;
+	padding-left: 0.75rem;
+	border-left: 4px solid var(--color-brand-blue);
+}
+.prose h1 {
+	font-size: 1.5rem;
+}
+.prose h3 {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+/* Znovupouzitelny styl seznamu v obsahu (.prose) i mimo nej pres tridu .content-list */
+.prose ul,
+ul.content-list {
+	list-style: none;
+	margin: 1rem 0 1.25rem;
+	padding-left: 0;
+	display: grid;
+	gap: 0.75rem;
+}
+
+.prose ul li,
+ul.content-list li {
+	position: relative;
+	padding-left: 1.5rem;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.prose ul li::before,
+ul.content-list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.85em;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 9999px;
+	background: var(--color-brand-blue);
+	box-shadow: 0 0 0 3px rgba(14, 86, 230, 0.2);
+	transform: translateY(-50%);
+}
+
+.prose ul li strong,
+ul.content-list li strong {
+	color: #ffffff;
+}

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shrnutí - KTech</title>
+        <link rel="stylesheet" href="./output.css" />
+    </head>
+    <body class="font-sans text-white">
+        <main
+            class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10 sm:px-6 lg:px-8"
+        >
+            <section
+                class="glass-card relative z-10 w-full max-w-3xl rounded-[2rem] p-6 sm:p-8 lg:p-10"
+            >
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-2xl font-black tracking-tight">
+                            Od starého notebooku do světa enterprise - Shrnutí
+                        </h1>
+                        <a
+                            href="index.html"
+                            class="text-sm text-white/70 hover:text-white"
+                            >Zpět</a
+                        >
+                    </div>
+
+                    <section class="prose max-w-none text-white/90">
+                        <h2>Hlavní myšlenka</h2>
+                        <p>
+                            I starý notebook může být cenným nástrojem pro osvojení
+                            moderních technologií a principů, které se používají v
+                            enterprise prostředí. Místo toho, aby starý hardware
+                            skončil jako elektronický odpad, může být znovu využit
+                            jako domácí server, který poskytuje praktickou zkušenost
+                            s různými technologiemi a koncepty.
+                        </p>
+                        <p>
+                            Homelab je domácí laboratoř. Dá se v ní bezpečně
+                            experimentovat, dělat chyby a učit se bez dopadu na
+                            produkci.
+                        </p>
+                        <p>
+                            Tento přístup umožňuje
+                            lidem experimentovat, učit se a získávat dovednosti,
+                            které jsou relevantní pro práci v IT a enterprise světě,
+                            aniž by museli investovat do drahého nového hardware.
+                        </p>
+
+
+                        <h2>Hardware a první kroky</h2>
+                        <p>
+                            Začít jde i se starým notebookem nebo starým PC.
+                            Důležité je použít lehký operační systém a
+                            instalovat jen to, co je opravdu potřeba.
+                        </p>
+                        <p>
+                            Pro získání co maximálního výkonu je dobré zbavit
+                            se i grafického prostředí. I když to může znít strašidelně,
+                            můžeme grafické prostředí nahradit webovým rozhraním,
+                            které je pro správu serveru často praktičtější a méně náročný.
+                        </p>
+                        <p>
+                            Možnosti jsou různé ve výběru hardwaru, a každá má své výhody i nevýhody.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>U providera:</strong> Žádná údržba, ale může
+                                být dražší a méně flexibilní. Uptime má většinou vyšší
+                                jak domácí řešení. Pokud tam plánujete hostovat primárně
+                                domácí služby, už to závisí na rychlosti a spolehlivosti
+                                vašeho internetového poskytovatele, a může to pro vás
+                                znamenat vyšší latenci.
+                            </li>
+                            <li>
+                                <strong>Doma v racku:</strong> Plná kontrola, ale
+                                vyšší náklady na elektřinu a chlazení, a je hlučnější. Vyžaduje
+                                mnohem větší počáteční investici do hardware a infrastruktury.
+                            </li>
+                            <li>
+                                <strong>Starý PC:</strong> Dá se začít s nulovou investicí, ale může být hlučné
+                                a energeticky méně efektivní. Může být ideální pro začátek, ale
+                                nemusí být vhodný pro dlouhodobé použití.
+                            </li>
+                            <li>
+                                <strong>Mini PC:</strong> Kompaktní a energeticky
+                                efektivní, ale má omezené možnosti rozšíření v
+                                počtech interních slotů. Často bývá označován jako
+                                zlatá střední cesta mezi homelabery díky jejich
+                                úsporným procesorům a tichému provozu.
+                            </li>
+                            <li>
+                                <strong>Notebook:</strong> Jeho přenosnost tu moc
+                                nevyužijeme, ale je velmi energeticky efektivní.
+                                Má integrovanou baterii, která může fungovat
+                                jako UPS, ale má omezenou životnost a výkon.
+                                Může být ideální pro experimentování a učení, ale
+                                dlouhodobě nemusí být vhodný jeho velkým omezením portů.
+                            </li>
+                        </ul>
+                        <p>
+                            Na začátku není nutné mít dedikovaný hardware. Pro
+                            experimentování se dá i využít stávající počítač s virtualizací,
+                            ale pak jsou vaše služby závislé na tom, že ten počítač běží,
+                            a přicházíte o výkon. Dává vám to také možnost snapshotů,
+                            které se do začátku můžou hodit. Virtualizační nástroj může
+                            být například WSL2, Hyper-V, nebo KVM na Linuxu.
+                        </p>
+
+                        <h2>Docker</h2>
+                        <p>
+                            Docker slouží ke spouštění aplikací v kontejnerech.
+                            Kontejner izoluje aplikaci od zbytku systému.
+                        </p>
+                        <p>
+                            Jedná se asi o nejdůležitější technologii pro homelab,
+                            protože umožňuje snadno spouštět různé služby bez obav
+                            o závislosti a konfiguraci. Místo toho, abyste museli
+                            ručně instalovat a konfigurovat každou službu, můžete
+                            jednoduše stáhnout a spustit předpřipravené Docker image.
+                        </p>
+                        <p>
+                            Výhoda Dockeru je jednoduchost a opakovatelnost —
+                            stejnou aplikaci lze spustit doma i jinde podobným
+                            způsobem. Docker sdílí Linux jádro hostitele, takže
+                            má menší izolaci než plná VM, ale pro homelab je
+                            velmi praktický.
+                        </p>
+
+                        <h2>IaC a automatizace</h2>
+                        <p>
+                            IaC znamená Infrastructure as Code — infrastruktura
+                            jako kód. Nastavení serverů, služeb a infrastruktury
+                            se nekliká ručně, ale popisuje se v souborech.
+                        </p>
+                        <p>
+                            Zmínili jsme GitHub Actions, Ansible a
+                            Terraform. Tyto nástroje pomáhají nasazovat změny
+                            opakovatelně a s menším rizikem chyby. Takže když
+                            něco na homelabu rozbijete, celou konfiguraci
+                            můžete rychle obnovit z kódu, místo toho, abyste
+                            museli všechno znovu nastavovat ručně.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>GitHub Actions:</strong> CI/CD —
+                                automatické buildy, testy a nasazování;
+                                <u>self-hosted runner</u> spouští úlohy na vlastním
+                                stroji po pushnutí do repozitáře, nebo třeba
+                                i po úspěšných testech.
+                            </li>
+                            <li>
+                                <strong>Ansible:</strong> agentless konfigurace
+                                serverů přes SSH/WinRM. Na samotný server se
+                                nemusí nic instalovat, stačí mít Ansible na
+                                řídícím počítači a SSH přístup k cílovým strojům.
+                                Slouží k instalaci software, konfiguraci a správě serverů.
+                            </li>
+                            <li>
+                                <strong>Terraform:</strong> popis infrastruktury
+                                v jazyce HCL; stav uložený ve state souboru.
+                            </li>
+                        </ul>
+                        <p>
+                            Pomůcka: Terraform postaví holé zdi, Ansible do nich nainstaluje nábytek a GitHub Actions zajistí pravidelnou údržbu a aktualizace.
+                        </p>
+
+                        <h2>Monitoring</h2>
+                        <p>
+                            Monitoring znamená aktivní sledování metrik,
+                            například teploty, SMART stavu disků, I/O a
+                            dostupnosti služeb. Nestačí jen ping — u webové
+                            služby je lepší ověřit skutečný HTTP stav (např.
+                            200).
+                        </p>
+                        <p>
+                            Důležité jsou alerty — při selhání poslat e-mail,
+                            push notifikaci nebo zprávu přes webhook (Discord
+                            apod.).
+                        </p>
+
+                        <h2>Self-hosted služby</h2>
+                        <p>
+                            Homelab může mít praktický užitek: VS Code Server
+                            pro vzdálený vývoj, game hosting, Jellyfin nebo Plex
+                            pro domácí multimédia.
+                        </p>
+
+                        <h2>Bezpečnost</h2>
+                        <p>
+                            Admin panely a citlivé služby by se neměly zbytečně
+                            vystavovat na internetu. Pro interní přístup
+                            používejte VPN nebo P2P řešení, například Tailscale.
+                        </p>
+                        <p>
+                            Vystavování služeb na internet má svá rizika, a tak je
+                            nutné se zamyslet, zda tuhle službu opravdu potřebujete
+                            mít přístupnou zvenčí, a pokud ano, jak ji zabezpečit.
+                            Pokud není nutné, nepoužívejte
+                            přímé port forwarding z routeru, je to jako kdybyste
+                            nechali otevřené dveře do vašeho domu.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Cloudflare Tunnel:</strong> bezpečný tunel
+                                z internetu do vašeho serveru bez nutnosti
+                                port forwardingu.
+                            </li>
+                            <li>
+                                <strong>Traefik:</strong> reverzní proxy pro
+                                směrování HTTP/HTTPS provozu na různé služby
+                                běžící na vašem serveru, s podporou TLS a
+                                certifikátů.
+                            </li>
+                            <li>
+                                <strong>Let's Encrypt:</strong> bezplatné TLS
+                                certifikát pro zabezpečení připojení a podporu HTTPS.
+                            </li>
+                            <li>
+                                <strong>Fail2Ban:</strong> blokování podezřelých
+                                pokusů o přihlášení.
+                            </li>
+                            <li>
+                                <strong>MFA:</strong> vícefaktorové ověření
+                                (např. aplikace v telefonu).
+                            </li>
+                        </ul>
+
+                        <h2>Zálohování - Pravidlo 3-2-1</h2>
+                        <p>
+                            Mít 3 kopie dat, na 2 různých typech
+                            médií a 1 kopii mimo hlavní lokaci (např. jednu kopii mít lokálně na SSD disku,
+                            druhou na externím disku/NAS na HDD disku, třetí v cloudu).
+                        </p>
+                        <p>
+                            Ztráta dat může být katastrofální, a tak je důležité mít
+                            spolehlivý zálohovací plán, alespoň pro kritická data.
+                            Pravidlo 3-2-1 pomáhá minimalizovat riziko ztráty dat
+                            tím, že zajišťuje redundanci a geografickou distribuci záloh.
+                        </p>
+
+                        <h2>Azure Arc</h2>
+                        <p>
+                            Azure Arc umožňuje spravovat vlastní servery z Azure
+                            portálu — lokální stroje zůstávají doma, cloud
+                            slouží jako vrstva pro správu a orchestrace. Lze
+                            řešit deployment, logging, metriky nebo Defender
+                            (může být zpoplatněno).
+                        </p>
+
+                        <h2>Celkové shrnutí</h2>
+                        <p>
+                            Homelab je levná a praktická cesta k osvojení
+                            enterprise principů. Klíčové technologie: Linux,
+                            Docker, GitHub Actions, Ansible, Terraform,
+                            monitoring, VPN, Cloudflare Tunnel, Traefik, Let's
+                            Encrypt, Fail2Ban, MFA, zálohy 3-2-1 a Azure Arc.
+                        </p>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
